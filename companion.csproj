@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Pulls in BepInEx and IL2CPP targets for Among Us modding -->
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
