@@ -5,7 +5,7 @@
     <AssemblyName>dev.thatonedev.companion</AssemblyName>
     <RootNamespace>dev.thatonedev.companion</RootNamespace>
     <LangVersion>latest</LangVersion>
-    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +15,16 @@
     <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
   </ItemGroup>
 
+  <!-- Explicitly add package reference assemblies to the compilation context safely -->
   <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(NUGET_PACKAGES)/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(NUGET_PACKAGES)/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
