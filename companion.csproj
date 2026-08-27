@@ -17,14 +17,14 @@
     <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
   </ItemGroup>
 
-  <!-- GlobalPackageReference target path injection for Linux CI runners -->
+  <!-- Explicitly use Linux-compatible forward slashes for the runner home directory -->
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(UserProfile)\.nuget\packages\amongus.gamelibs.steam\2023.10.24\lib\netstandard2.1\Assembly-CSharp.dll</HintPath>
+      <HintPath>/home/runner/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
       <Private>true</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(UserProfile)\.nuget\packages\amongus.gamelibs.steam\2023.10.24\lib\netstandard2.1\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>/home/runner/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
       <Private>true</Private>
     </Reference>
     <Reference Include="MiraAPI">
