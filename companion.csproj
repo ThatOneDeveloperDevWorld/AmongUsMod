@@ -5,7 +5,6 @@
     <AssemblyName>dev.thatonedev.companion</AssemblyName>
     <RootNamespace>dev.thatonedev.companion</RootNamespace>
     <LangVersion>latest</LangVersion>
-    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,9 +14,10 @@
     <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" GeneratePathProperty="true" />
   </ItemGroup>
 
-  <!-- Explicitly inject the game libraries from the NuGet package cache folder structure safely -->
+  <!-- Safely target individual game and engine libraries using property-based paths -->
   <ItemGroup>
-    <Reference Include="$(PkgAmongUs_GameLibs_Steam)\lib\netstandard2.1\*.dll" />
+    <Reference Include="$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/Assembly-CSharp.dll" />
+    <Reference Include="$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/UnityEngine.CoreModule.dll" />
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
