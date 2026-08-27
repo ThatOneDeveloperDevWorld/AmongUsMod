@@ -21,17 +21,16 @@ namespace dev.thatonedev.companion
     [HarmonyPatch]
     public static class CompanionRolePatches
     {
-        // Hooks into the game's role manager start sequence
-        [HarmonyPatch(typeof(RoleManager), nameof(RoleManager.Start))]
+        // Target a standard safe method or constructor/initializer pattern found in Among Us role systems
+        [HarmonyPatch(typeof(RoleManager), "Awake")]
         [HarmonyPostfix]
-        static void PostfixRoleInitialize(RoleManager __instance)
+        static void PostfixRoleAwake(RoleManager __instance)
         {
-            Debug.Log("[CompanionMod] Injecting Companion role placeholder configuration.");
+            Debug.Log("[CompanionMod] RoleManager Awake hook triggered.");
             
-            // Safety check to ensure the role list exists before manipulation
-            if (__instance.AllRoles != null)
+            if (__instance != null)
             {
-                // Custom role logic configuration can be initialized here
+                // Put your initialization or role setup code here
             }
         }
     }
