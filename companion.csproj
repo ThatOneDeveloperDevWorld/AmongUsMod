@@ -10,6 +10,8 @@
   <ItemGroup>
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.679" />
     <PackageReference Include="Reactor" Version="2.3.1" />
+    <PackageReference Include="Il2CppInterop.Runtime" Version="1.4.3" />
+    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.7.12" />
   </ItemGroup>
 
   <ItemGroup>
