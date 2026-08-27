@@ -26,7 +26,7 @@
       <HintPath>libs/UnityEngine.CoreModule.dll</HintPath>
       <Private>true</Private>
     </Reference>
-    <Reference Include="MiraAPI">
+    <Reference Include="MiraAPI" Condition="Exists('libs/MiraAPI.dll')">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
     </Reference>
