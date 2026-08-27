@@ -5,13 +5,14 @@
     <AssemblyName>dev.thatonedev.companion</AssemblyName>
     <RootNamespace>dev.thatonedev.companion</RootNamespace>
     <LangVersion>latest</LangVersion>
+    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="libs\*.dll">
+    <Reference Include="MiraAPI">
+      <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
 
 </Project>
-
