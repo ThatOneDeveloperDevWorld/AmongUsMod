@@ -18,6 +18,7 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '6.0.x'
+        global-json-file: global.json
 
     - name: Restore Dependencies
       run: dotnet restore companion.csproj --configfile nuget.config
