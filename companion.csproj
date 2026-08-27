@@ -5,13 +5,7 @@
     <AssemblyName>dev.thatonedev.companion</AssemblyName>
     <RootNamespace>dev.thatonedev.companion</RootNamespace>
     <LangVersion>latest</LangVersion>
-    <!-- Explicitly set the NuGet package cache folder path for Linux CI runners -->
-    <GameLibsDir>$(UserProfile)\.nuget\packages\amongus.gamelibs.steam\2023.10.24\lib\netstandard2.1</GameLibsDir>
-  </PropertyGroup>
-
-  <!-- Fallback path adjustment for Linux runners (forward slashes) -->
-  <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
-    <GameLibsDir>$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1</GameLibsDir>
+    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,16 +15,7 @@
     <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
   </ItemGroup>
 
-  <!-- Direct file references using the evaluated properties -->
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>$(GameLibsDir)/Assembly-CSharp.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(GameLibsDir)/UnityEngine.CoreModule.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
