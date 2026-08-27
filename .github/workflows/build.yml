@@ -20,8 +20,8 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Restore Dependencies
-      run: dotnet restore companion.csproj
+      run: dotnet restore companion.csproj --configfile nuget.config
 
     - name: Build Mod
-      run: dotnet build companion.csproj --configuration Release
+      run: dotnet build companion.csproj --configuration Release --no-restore
       
