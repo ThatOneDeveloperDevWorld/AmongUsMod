@@ -7,12 +7,6 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <ItemDefinitionGroup>
-    <PackageReference>
-      <GeneratePathProperty>true</GeneratePathProperty>
-    </PackageReference>
-  </ItemDefinitionGroup>
-
   <ItemGroup>
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.618" />
     <PackageReference Include="Reactor.AmongUs" Version="3.0.0" />
