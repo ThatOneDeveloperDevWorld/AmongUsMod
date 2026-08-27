@@ -12,17 +12,15 @@
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.679" />
     <PackageReference Include="Reactor" Version="2.3.1" />
     <PackageReference Include="Il2CppInterop.Runtime" Version="1.4.6-ci.389" />
-    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
+    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" GeneratePathProperty="true" />
   </ItemGroup>
 
-  <!-- Explicitly add package reference assemblies to the compilation context safely -->
+  <!-- Explicitly target the individual DLL files using the NuGet generated path property -->
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>$(NUGET_PACKAGES)/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
+    <Reference Include="$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/Assembly-CSharp.dll">
       <Private>false</Private>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(NUGET_PACKAGES)/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/UnityEngine.CoreModule.dll">
       <Private>false</Private>
     </Reference>
     <Reference Include="MiraAPI">
