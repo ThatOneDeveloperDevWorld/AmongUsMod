@@ -5,13 +5,17 @@
     <AssemblyName>dev.thatonedev.companion</AssemblyName>
     <RootNamespace>dev.thatonedev.companion</RootNamespace>
     <LangVersion>latest</LangVersion>
-    <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
   </PropertyGroup>
 
+  <ItemDefinitionGroup>
+    <PackageReference>
+      <GeneratePathProperty>true</GeneratePathProperty>
+    </PackageReference>
+  </ItemDefinitionGroup>
+
   <ItemGroup>
-    <!-- Pulls in BepInEx and IL2CPP targets for Among Us modding -->
-    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.*" PrivateAssets="all" />
-    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.618" />
+    <PackageReference Include="Reactor.AmongUs" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
