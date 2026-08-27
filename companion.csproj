@@ -15,18 +15,7 @@
     <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
   </ItemGroup>
 
-  <!-- Automatically pull necessary game and engine references from the package directory structure -->
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>%USERPROFILE%\.nuget\packages\amongus.gamelibs.steam\2023.10.24\lib\netstandard2.1\Assembly-CSharp.dll</HintPath>
-      <HintPath Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>%USERPROFILE%\.nuget\packages\amongus.gamelibs.steam\2023.10.24\lib\netstandard2.1\UnityEngine.CoreModule.dll</HintPath>
-      <HintPath Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
