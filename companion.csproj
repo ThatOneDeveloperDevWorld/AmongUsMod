@@ -12,23 +12,31 @@
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.679" />
     <PackageReference Include="Reactor" Version="2.3.1" />
     <PackageReference Include="Il2CppInterop.Runtime" Version="1.4.6-ci.389" />
-    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
+    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" GeneratePathProperty="true" />
   </ItemGroup>
 
-  <!-- Point directly to the NuGet package cache folder using a wildcard/relative path that works on Linux -->
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>/home/runner/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>/home/runner/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
+
+  <!-- Automatically locate GameLibs assemblies dynamically at build time -->
+  <Target Name="AddGameLibs" BeforeTargets="CollectPackageReferences;CoreCompile">
+    <PropertyGroup>
+      <GameLibsPath>$(PkgAmongUs_GameLibs_Steam)</GameLibsPath>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(GameLibsPath)' != '' and Exists('$(GameLibsPath)')">
+      <Reference Include="Assembly-CSharp">
+        <HintPath>$(GameLibsPath)\lib\netstandard2.1\Assembly-CSharp.dll</HintPath>
+        <Private>false</Private>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+        <HintPath>$(GameLibsPath)\lib\netstandard2.1\UnityEngine.CoreModule.dll</HintPath>
+        <Private>false</Private>
+      </Reference>
+    </ItemGroup>
+  </Target>
 
 </Project>
