@@ -5,6 +5,7 @@
     <AssemblyName>dev.thatonedev.companion</AssemblyName>
     <RootNamespace>dev.thatonedev.companion</RootNamespace>
     <LangVersion>latest</LangVersion>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
