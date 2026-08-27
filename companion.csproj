@@ -14,7 +14,11 @@
     <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" GeneratePathProperty="true" />
   </ItemGroup>
 
+  <!-- Explicitly include the game and unity libraries from the NuGet cache into the compiler -->
   <ItemGroup>
+    <Reference Include="$(PkgAmongUs_GameLibs_Steam)\lib\netstandard2.1\*.dll">
+      <Private>false</Private>
+    </Reference>
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
