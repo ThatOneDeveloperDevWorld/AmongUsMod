@@ -15,14 +15,20 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '6.0.x'
+
+    - name: Clear NuGet HTTP Cache
+      run: dotnet nuget locals http-cache --clear
+
+    - name: Restore Dependencies
+      run: dotnet restore companion.csproj
 
     - name: Build Project
-      run: dotnet build companion.csproj --configuration Release
+      run: dotnet build companion.csproj --configuration Release --no-restore
 
     - name: Upload Compiled DLL Artifact
       uses: actions/upload-artifact@v4
       with:
         name: companion-mod-dll
-        path: bin/Release/netstandard2.1/dev.thatonedev.companion.dll
+        path: bin/Release/net6.0/dev.thatonedev.companion.dll
         
