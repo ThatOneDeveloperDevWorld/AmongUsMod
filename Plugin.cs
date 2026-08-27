@@ -21,8 +21,8 @@ namespace dev.thatonedev.companion
     [HarmonyPatch]
     public static class CompanionRolePatches
     {
-        // Hooks into the game's role manager initialization sequence
-        [HarmonyPatch(typeof(RoleManager), nameof(RoleManager.Initialize))]
+        // Hooks into the game's role manager start sequence
+        [HarmonyPatch(typeof(RoleManager), nameof(RoleManager.Start))]
         [HarmonyPostfix]
         static void PostfixRoleInitialize(RoleManager __instance)
         {
@@ -36,4 +36,3 @@ namespace dev.thatonedev.companion
         }
     }
 }
-
