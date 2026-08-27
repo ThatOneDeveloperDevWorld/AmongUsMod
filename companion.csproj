@@ -17,7 +17,18 @@
     <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
   </ItemGroup>
 
+  <!-- Wildcard item group to automatically pick up GameLibs from the local NuGet cache on Linux/Windows -->
   <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(NUGET_PACKAGES)amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
+      <HintPath Condition="'$(NUGET_PACKAGES)' == ''">$([System.IO.Path]::Combine('$(HOME)','.nuget','packages','amongus.gamelibs.steam','2023.10.24','lib','netstandard2.1','Assembly-CSharp.dll'))</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(NUGET_PACKAGES)amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
+      <HintPath Condition="'$(NUGET_PACKAGES)' == ''">$([System.IO.Path]::Combine('$(HOME)','.nuget','packages','amongus.gamelibs.steam','2023.10.24','lib','netstandard2.1','UnityEngine.CoreModule.dll'))</HintPath>
+      <Private>true</Private>
+    </Reference>
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
