@@ -23,6 +23,13 @@ jobs:
     - name: Restore Dependencies
       run: dotnet restore companion.csproj --configfile nuget.config
 
+    - name: Copy GameLibs to Local Folder
+      run: |
+        mkdir -p libs
+        # Find and copy Assembly-CSharp and UnityEngine.CoreModule from the NuGet cache
+        find ~/.nuget/packages/amongus.gamelibs.steam -name "Assembly-CSharp.dll" -exec cp {} libs/ \;
+        find ~/.nuget/packages/amongus.gamelibs.steam -name "UnityEngine.CoreModule.dll" -exec cp {} libs/ \;
+
     - name: Build Mod
       run: dotnet build companion.csproj --configuration Release --no-restore
       
