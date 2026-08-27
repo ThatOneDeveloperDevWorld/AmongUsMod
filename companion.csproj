@@ -12,17 +12,19 @@
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.679" />
     <PackageReference Include="Reactor" Version="2.3.1" />
     <PackageReference Include="Il2CppInterop.Runtime" Version="1.4.6-ci.389" />
-    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" GeneratePathProperty="true" />
+    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
   </ItemGroup>
 
-  <!-- Point directly to the correct netstandard2.1 directory inside the package cache -->
+  <!-- Automatically pull necessary game and engine references from the package directory structure -->
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
+      <HintPath>%USERPROFILE%\.nuget\packages\amongus.gamelibs.steam\2023.10.24\lib\netstandard2.1\Assembly-CSharp.dll</HintPath>
+      <HintPath Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>%USERPROFILE%\.nuget\packages\amongus.gamelibs.steam\2023.10.24\lib\netstandard2.1\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.nuget/packages/amongus.gamelibs.steam/2023.10.24/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="MiraAPI">
