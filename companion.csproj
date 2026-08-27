@@ -6,7 +6,6 @@
     <RootNamespace>dev.thatonedev.companion</RootNamespace>
     <LangVersion>latest</LangVersion>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <!-- Explicitly direct NuGet to generate the package path property globally -->
     <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
   </PropertyGroup>
 
@@ -17,7 +16,6 @@
     <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" GeneratePathProperty="true" />
   </ItemGroup>
 
-  <!-- Use standard property evaluation which evaluates correctly before compilation references load -->
   <PropertyGroup>
     <GameLibsDir>$([MSBuild]::EnsureTrailingSlash('$(PkgAmongUs_GameLibs_Steam)'))</GameLibsDir>
   </PropertyGroup>
@@ -25,11 +23,11 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp" Condition="Exists('$(GameLibsDir)lib\netstandard2.1\Assembly-CSharp.dll')">
       <HintPath>$(GameLibsDir)lib\netstandard2.1\Assembly-CSharp.dll</HintPath>
-      <Private>false</Private>
+      <Private>true</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule" Condition="Exists('$(GameLibsDir)lib\netstandard2.1\UnityEngine.CoreModule.dll')">
       <HintPath>$(GameLibsDir)lib\netstandard2.1\UnityEngine.CoreModule.dll</HintPath>
-      <Private>false</Private>
+      <Private>true</Private>
     </Reference>
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
