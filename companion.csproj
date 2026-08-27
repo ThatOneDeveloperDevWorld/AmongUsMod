@@ -11,13 +11,22 @@
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.679" />
     <PackageReference Include="Reactor" Version="2.3.1" />
     <PackageReference Include="Il2CppInterop.Runtime" Version="1.4.6-ci.389" />
-    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" GeneratePathProperty="true" />
+    <PackageReference Include="AmongUs.GameLibs.Steam" Version="2023.10.24" />
   </ItemGroup>
 
-  <!-- Safely target individual game and engine libraries using property-based paths -->
+  <!-- Automatically bind package assemblies to the compiler without strong-name parsing issues -->
+  <Target Name="IncludeGameAssemblies" BeforeTargets="CoreCompile">
+    <ItemGroup>
+      <Reference Include="Assembly-CSharp">
+        <HintPath>$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+        <HintPath>$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+  </Target>
+
   <ItemGroup>
-    <Reference Include="$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/Assembly-CSharp.dll" />
-    <Reference Include="$(PkgAmongUs_GameLibs_Steam)/lib/netstandard2.1/UnityEngine.CoreModule.dll" />
     <Reference Include="MiraAPI">
       <HintPath>libs\MiraAPI.dll</HintPath>
       <Private>false</Private>
