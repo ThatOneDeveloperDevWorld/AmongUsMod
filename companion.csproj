@@ -15,7 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="$(PkgAmongUs_GameLibs_Steam)\lib\net6.0\*.dll">
+    <!-- Directly reference the required core assemblies from the generated package path -->
+    <Reference Include="$(PkgAmongUs_GameLibs_Steam)\lib\netstandard2.1\Assembly-CSharp.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="$(PkgAmongUs_GameLibs_Steam)\lib\netstandard2.1\UnityEngine.CoreModule.dll">
       <Private>false</Private>
     </Reference>
     <Reference Include="MiraAPI">
